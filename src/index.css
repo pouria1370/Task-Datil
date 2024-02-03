@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: vazir-matn;
+  src: url('../src/assets/fonts/Vazirmatn-Black.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: vazir-matn;
+  src: url('../src/assets/fonts/Vazirmatn-ExtraBold.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: vazir-matn;
+  src: url('../src/assets/fonts/Vazirmatn-SemiBold.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: vazir-adad;
+  src: url('../src/assets/fonts/Vazirmatn-RD-FD-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html{
+  background-color: #161B25;
+}
+
