@@ -1,12 +1,12 @@
 import  { useContext, useState } from 'react'
-import { Box, Button, MenuItem, Modal, Select } from '@mui/material'
+import { Box, Button, MenuItem, Modal, Select, useTheme } from '@mui/material'
 import Themes from '../Themes/Themes'
 import { AppContext } from '../../context/app-context'
 import { useTranslation } from 'react-i18next'
-import { Key } from '@mui/icons-material'
 
 const PouriaTheme = () => {
     const [currentThemeName, setCurrentThemeName] = useState<string>("")
+    const theme = useTheme()
     const ctx = useContext(AppContext)
     const [isModalShown, setIsModalShown] = useState(false)
     const openModal = () => {
@@ -43,8 +43,8 @@ const submitHandler = (themeName:string) => {
 }
 
     return (
-        <div>
-            <Button color='success' onClick={openModal}>Theme</Button>
+        <Box sx={(theme) => ({backgroundColor:theme.palette.secondary.main})}>
+            <Button color='primary'  onClick={openModal} >{t('Theme')}</Button>
             <Modal
                 open={isModalShown}
                 onClose={() => {
@@ -65,7 +65,7 @@ const submitHandler = (themeName:string) => {
                             value={currentThemeName}
                             label={t("نوع")}
                             onChange={SelectChangeHandler}
-                            className='basis-2/6 text-text_disablity font-vazir '
+                            className='basis-fulll text-text_disablity font-vazir '
                             color='warning'
                             fullWidth
 
@@ -78,11 +78,11 @@ const submitHandler = (themeName:string) => {
 
                         </Select>
                     </div >
-                    <Button color='warning' variant='outlined' onClick={() => submitHandler(currentThemeName)}>{t('Apply')}</Button>
+                    <Button color='warning' className='mt-5' variant='outlined' onClick={() => submitHandler(currentThemeName)}>{t('Apply')}</Button>
                    
                 </Box>
             </Modal>
-        </div>
+        </Box>
     )
 }
 

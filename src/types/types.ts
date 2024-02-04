@@ -8,13 +8,13 @@ export type LinkType = {
 }
 
 export type ThemePouriaType = {
-      background: String | object,
-      primary:String,
-      secondary:String
+      background: string,
+      primary:string ,
+      secondary:string 
 }
 
 export interface AppContextType{
-    theme: object,
+    theme: ThemePouriaType,
     changeTheme: (item:ThemePouriaType) => void,
     items:LinkType[],
     removeItem : (item:LinkType) => void,

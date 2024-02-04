@@ -3,9 +3,9 @@ import React, { createContext, useState } from "react";
 import {AppContextType,LinkType, ThemePouriaType} from '../types/types'
 export const AppContext = createContext<AppContextType | null>({
   theme: {
-    background: '#3C3633',
-    primary:'#E0CCBE',
-    secondary:'#EEEDEB'
+    primary:"",
+    secondary:"",
+    background:""
   },
   changeTheme: () => { },
   items: [],
@@ -17,7 +17,11 @@ export const AppContext = createContext<AppContextType | null>({
 const AppContextProvider:React.FC<{children: React.ReactNode}> = ({children}) => {
   
   const [items, setItems] = useState<LinkType[]>([])
-  const [theme, setTheme] = useState<any>()
+  const [theme, setTheme] = useState<ThemePouriaType>({
+    background: '#3C3633',
+    primary:'#E0CCBE',
+    secondary:'#EEEDEB'
+  })
 
   const removeItem = (item: LinkType) => {
     const filteredItems = items.filter(currentItem => item.address !== item.address)
